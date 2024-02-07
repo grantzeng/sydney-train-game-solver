@@ -9,7 +9,7 @@ def brute_force_solver(num: str) -> None:
 
         How it works:
         - There are 5 possible expression trees (the third Catalan number)
-        - 4^3 possible ways of choosing binary operations
+        - 4^3 possible ways of choosing binary operations (ignoring the fact * and + are commutative)
         - 4! permutations of the four numbers
         ...which is 7680 expressions to check, so a computer can bruteforce it.
     """
