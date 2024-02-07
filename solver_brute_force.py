@@ -8,7 +8,7 @@ def brute_force_solver(num: str) -> None:
         Takes a four digit number as a string, and brute force evaluates every possible expression of it
 
         How it works:
-        - There are 5 possible expression trees (the fifth Catalan number)
+        - There are 5 possible expression trees (the third Catalan number)
         - 4^3 possible ways of choosing binary operations
         - 4! permutations of the four numbers
         ...which is 7680 expressions to check, so a computer can bruteforce it.
