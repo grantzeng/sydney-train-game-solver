@@ -2,13 +2,18 @@
 
 from itertools import permutations, product
 import sys
-#
-#   There's only C_5 = 5 possible parse trees
-#
-def brute_force_solver(num: str):
+
+def brute_force_solver(num: str) -> None:
     """
-        Take a four digit number
+        Takes a four digit number as a string, and brute force evaluates every possible expression of it
+
+        How it works:
+        - There are 5 possible expression trees (the fifth Catalan number)
+        - 4^3 possible ways of choosing binary operations
+        - 4! permutations of the four numbers
+        ...which is 7680 expressions to check, so a computer can bruteforce it.
     """
+
     trees = [
         '((({} {} {}) {} {}) {} {})',
         '(({} {} ({} {} {})) {} {})',
