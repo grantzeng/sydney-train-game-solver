@@ -3,17 +3,18 @@
 from itertools import permutations, product
 import sys
 
-def brute_force_solver(num: str) -> None:
+def brute_force_solver(num: str) -> list:
     """
-        Takes a four digit number as a string, and brute force checks every possible expression for evaluating to 10
+        Takes a four digit number as a string, and checks for solutions to the train game and returns a list
+        of expressions that will evaluate to ten using the four digits and only arithmetic operations
 
         How it works:
         - There are 5 possible expression trees (the third Catalan number)
         - 4^3 possible ways of choosing binary operations (ignoring the fact * and + are commutative)
         - 4! permutations of the four numbers
-        ...which is 7680 expressions to check, so a computer can bruteforce it.
-    """
 
+        Which is 7680 expressions to check, so a computer can bruteforce it.
+    """
     trees = [
         '((({} {} {}) {} {}) {} {})',
         '(({} {} ({} {} {})) {} {})',
