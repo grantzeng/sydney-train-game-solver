@@ -5,7 +5,7 @@ import sys
 
 def brute_force_solver(num: str) -> None:
     """
-        Takes a four digit number as a string, and brute force evaluates every possible expression of it
+        Takes a four digit number as a string, and brute force checks every possible expression for evaluating to 10
 
         How it works:
         - There are 5 possible expression trees (the third Catalan number)
@@ -25,23 +25,31 @@ def brute_force_solver(num: str) -> None:
     nums = list(num)
     ops = ['+', '-', '/', '*']
 
-    #print(len(list(permutations(nums))))
-    #print(len(list(product(ops, repeat=3))))
+    solns = []
 
     for tree in trees:
         for (n1, n2, n3, n4) in permutations(nums):
             for (op1, op2, op3) in product(ops, repeat=3):
                 expr = tree.format(n1, op1, n2, op2, n3, op3, n4)
-
                 try:
                     res = eval(expr)
-                    if res == 10: print (f'{expr} = 10')
+                    if res == 10:
+                        print (f'{expr} = 10')
+                        solns.append(res)
                 except ZeroDivisionError as e:
                     pass
 
+    if not solns:
+        print(f"{sys.argv[0]}: can't solve this with only arithmetic operations")
+
+    return solns
+
+
 
 def main():
-    if len(sys.argv) != 2 or len(sys.argv[1]) != 4:
+
+    if len(sys.argv) != 2 or not (len(sys.argv[1]) == 4 and sys.argv[1].isnumeric()):
+        print(f'{sys.argv[0]}: input must be a four digit number')
         return
 
     brute_force_solver(sys.argv[1])
