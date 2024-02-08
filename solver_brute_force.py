@@ -36,7 +36,7 @@ def brute_force_solver(num: str) -> list:
                     res = eval(expr)
                     if res == 10:
                         print (f'{expr} = 10')
-                        solns.append(res)
+                        solns.append(expr)
                 except ZeroDivisionError as e:
                     pass
 
