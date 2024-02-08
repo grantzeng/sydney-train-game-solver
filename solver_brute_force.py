@@ -33,8 +33,7 @@ def brute_force_solver(num: str) -> list:
             for (op1, op2, op3) in product(ops, repeat=3):
                 expr = tree.format(n1, op1, n2, op2, n3, op3, n4)
                 try:
-                    res = eval(expr)
-                    if res == 10:
+                    if eval(expr) == 10:
                         print (f'{expr} = 10')
                         solns.append(expr)
                 except ZeroDivisionError as e:
